@@ -5,7 +5,7 @@
     $(function() {
       $( "#sortable" ).sortable();
       $( "#sortable" ).disableSelection();
-      $( "#sortable" ).bind("sortupdate" , function(e){ console.log($("#sortable").sortable("serialize"))});
+      $( "#sortable" ).on("sortupdate" , function(e){ console.log($("#sortable").sortable("serialize"))});
     });
   </script>
 <% end %>
@@ -33,6 +33,6 @@
 <% end %>
 </ul>
 <BR>
-<%= link_to 'Create a New Scene', new_novel_scene_path(:novel_id=>@novel.id) %> 
+<%= link_to 'Create a New Scene', new_novel_scene_path(:novel_id=>@novel.id) %> |
 <%= link_to 'Edit This Novel', edit_novel_path %> |
 <%= link_to 'List All Novels', novels_path %>
