@@ -1,0 +1,33 @@
+<h1>Listing novels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genere</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @novels.each do |novel| %>
+      <tr  class=" <% cycle('list_line_odd','list_line_eve') %>" >
+        <td class="list_title"><%= novel.title %></td>
+        <td><%= novel.genere %></td>
+        <td class="list_description"><%= novel.description %></td>
+        <td class="list_actions">
+          <%= link_to 'Show', novel %><BR>
+          <%= link_to 'Edit', edit_novel_path(novel) %><BR>
+          <%= link_to 'Destroy', novel, method: :delete, data: { confirm: 'Are you sure?' } %><BR>
+        </tr>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Novel', new_novel_path %>

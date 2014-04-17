@@ -1,0 +1,34 @@
+<% content_for :head do %>
+  
+
+<script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script>
+        tinymce.init({
+                 setup : function(ed) {
+                  ed.on('change', function(e) {
+                     console.log('the event object '+e);
+                     console.log('the editor object '+ed);
+                     console.log('the content '+ed.getContent());
+                  });
+                  ed.on('click', function(e) {
+                      console.log('Editor was clicked');
+                  });
+            },
+    selector: "textarea",
+    plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen wordcount"
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+});
+tinymce.on('GetContent', function(e) {
+    console.log(e.content);
+});
+</script>
+<% end %>
+
+<h1>New scene</h1>
+
+<%= render 'form' %>
+
+

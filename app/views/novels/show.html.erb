@@ -1,0 +1,38 @@
+<% content_for :head do %>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script>
+    $(function() {
+      $( "#sortable" ).sortable();
+      $( "#sortable" ).disableSelection();
+      $( "#sortable" ).bind("sortupdate" , function(e){ console.log($("#sortable").sortable("serialize"))});
+    });
+  </script>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @novel.title %>
+</p>
+
+<p>
+  <strong>Genere:</strong>
+  <%= @novel.genere %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @novel.description %>
+</p>
+<ul id="sortable">
+
+<% @novel.scenes.sort! { |a,b| a.order <=> b.order }.each do |scene| %>
+ <%  #http://stackoverflow.com/questions/8531306/how-to-use-rails-named-route-helpers-with-parameters %> 
+  <li id="<%= "id_" + scene.id.to_s %>">  <%=  scene.title %>  <%= scene.order %> <%= link_to 'Edit Scene' , edit_novel_scene_path(:novel_id=> @novel , :id =>scene) %> </li>
+<% end %>
+</ul>
+<BR>
+<%= link_to 'Create a New Scene', new_novel_scene_path(:novel_id=>@novel.id) %> 
+<%= link_to 'Edit This Novel', edit_novel_path %> |
+<%= link_to 'List All Novels', novels_path %>

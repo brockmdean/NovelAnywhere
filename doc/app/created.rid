@@ -1,0 +1,12 @@
+Tue, 15 Apr 2014 15:19:17 +0000
+README.rdoc	Mon, 14 Apr 2014 18:48:38 +0000
+app/controllers/application_controller.rb	Mon, 14 Apr 2014 18:48:40 +0000
+app/controllers/home_controller.rb	Mon, 14 Apr 2014 18:48:40 +0000
+app/controllers/novels_controller.rb	Mon, 14 Apr 2014 18:48:40 +0000
+app/controllers/scenes_controller.rb	Mon, 14 Apr 2014 21:34:40 +0000
+app/helpers/application_helper.rb	Mon, 14 Apr 2014 18:48:41 +0000
+app/helpers/home_helper.rb	Mon, 14 Apr 2014 18:48:41 +0000
+app/helpers/novels_helper.rb	Mon, 14 Apr 2014 18:48:41 +0000
+app/helpers/scenes_helper.rb	Mon, 14 Apr 2014 21:34:40 +0000
+app/models/novel.rb	Mon, 14 Apr 2014 22:30:26 +0000
+app/models/scene.rb	Mon, 14 Apr 2014 22:30:21 +0000

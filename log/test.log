@@ -1,0 +1,294 @@
+  [1m[36m (7.8ms)[0m  [1mCREATE TABLE "novels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "genere" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (3.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (3.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140413020559')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "novels"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "novels" ("title", "genere", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2014-04-13 02:13:49', '2014-04-13 02:13:49', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "novels" ("title", "genere", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2014-04-13 02:13:49', '2014-04-13 02:13:49', 298486374)[0m
+  [1m[35m (3.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+NovelsControllerTest: test_should_create_novel
+----------------------------------------------
+  [1m[35mNovel Load (0.3ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "novels"[0m
+Processing by NovelsController#create as HTML
+  Parameters: {"novel"=>{"description"=>"MyText", "genere"=>"MyString", "title"=>"MyString"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "novels" ("created_at", "description", "genere", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Sun, 13 Apr 2014 02:13:49 UTC +00:00], ["description", "MyText"], ["genere", "MyString"], ["title", "MyString"], ["updated_at", Sun, 13 Apr 2014 02:13:49 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/novels/980190963
+Completed 302 Found in 9ms (ActiveRecord: 1.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "novels"[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+NovelsControllerTest: test_should_destroy_novel
+-----------------------------------------------
+  [1m[35mNovel Load (0.1ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "novels"[0m
+Processing by NovelsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mNovel Load (0.1ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "novels" WHERE "novels"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/novels
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "novels"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+NovelsControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[36mNovel Load (0.1ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NovelsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mNovel Load (0.1ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", "980190962"]]
+  Rendered novels/_form.html.erb (50.7ms)
+Completed 200 OK in 57ms (Views: 56.0ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+NovelsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[36mNovel Load (0.2ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NovelsController#index as HTML
+  [1m[35mNovel Load (0.2ms)[0m  SELECT "novels".* FROM "novels"
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+NovelsControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[36mNovel Load (0.2ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NovelsController#new as HTML
+  Rendered novels/_form.html.erb (3.0ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+NovelsControllerTest: test_should_show_novel
+--------------------------------------------
+  [1m[35mNovel Load (0.1ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NovelsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNovel Load (0.1ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+NovelsControllerTest: test_should_update_novel
+----------------------------------------------
+  [1m[35mNovel Load (0.1ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NovelsController#update as HTML
+  Parameters: {"novel"=>{"description"=>"MyText", "genere"=>"MyString", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mNovel Load (0.1ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/novels/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (34.7ms)[0m  [1mCREATE TABLE "novels" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "genere" varchar(255), "description" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (18.4ms)[0m  CREATE TABLE "scenes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "content" text, "order" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (19.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (19.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (18.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140414213440')
+  [1m[36m (22.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140413020559')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "novels"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "novels" ("title", "genere", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2014-04-14 22:33:36', '2014-04-14 22:33:36', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "novels" ("title", "genere", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', '2014-04-14 22:33:36', '2014-04-14 22:33:36', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "scenes"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "scenes" ("title", "content", "order", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 1, '2014-04-14 22:33:36', '2014-04-14 22:33:36', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "scenes" ("title", "content", "order", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 1, '2014-04-14 22:33:36', '2014-04-14 22:33:36', 298486374)
+  [1m[36m (15.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+HomeControllerTest: test_should_get_index
+-----------------------------------------
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+NovelsControllerTest: test_should_create_novel
+----------------------------------------------
+  [1m[36mNovel Load (0.4ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "novels"
+Processing by NovelsController#create as HTML
+  Parameters: {"novel"=>{"description"=>"MyText", "genere"=>"MyString", "title"=>"MyString"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "novels" ("created_at", "description", "genere", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Mon, 14 Apr 2014 22:33:36 UTC +00:00], ["description", "MyText"], ["genere", "MyString"], ["title", "MyString"], ["updated_at", Mon, 14 Apr 2014 22:33:36 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/novels/980190963
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "novels"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+NovelsControllerTest: test_should_destroy_novel
+-----------------------------------------------
+  [1m[36mNovel Load (0.2ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "novels"
+Processing by NovelsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNovel Load (0.1ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "novels" WHERE "novels"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/novels
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "novels"[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+NovelsControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[35mNovel Load (0.1ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NovelsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mNovel Load (0.1ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered novels/_form.html.erb (14.4ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+NovelsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[35mNovel Load (0.2ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NovelsController#index as HTML
+  [1m[36mNovel Load (0.1ms)[0m  [1mSELECT "novels".* FROM "novels"[0m
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+NovelsControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[35mNovel Load (0.2ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by NovelsController#new as HTML
+  Rendered novels/_form.html.erb (2.8ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+--------------------------------------------
+NovelsControllerTest: test_should_show_novel
+--------------------------------------------
+  [1m[36mNovel Load (0.2ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NovelsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mNovel Load (0.1ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+NovelsControllerTest: test_should_update_novel
+----------------------------------------------
+  [1m[36mNovel Load (0.2ms)[0m  [1mSELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by NovelsController#update as HTML
+  Parameters: {"novel"=>{"description"=>"MyText", "genere"=>"MyString", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mNovel Load (0.1ms)[0m  SELECT "novels".* FROM "novels" WHERE "novels"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/novels/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+ScenesControllerTest: test_should_create_scene
+----------------------------------------------
+  [1m[36mScene Load (0.3ms)[0m  [1mSELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "scenes"
+Processing by ScenesController#create as HTML
+  Parameters: {"scene"=>{"content"=>"MyText", "order"=>"1", "title"=>"MyString"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "scenes" ("content", "created_at", "order", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["content", "MyText"], ["created_at", Mon, 14 Apr 2014 22:33:36 UTC +00:00], ["order", 1], ["title", "MyString"], ["updated_at", Mon, 14 Apr 2014 22:33:36 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/scenes/980190963
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "scenes"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------
+ScenesControllerTest: test_should_destroy_scene
+-----------------------------------------------
+  [1m[36mScene Load (0.2ms)[0m  [1mSELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "scenes"
+Processing by ScenesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mScene Load (0.1ms)[0m  [1mSELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "scenes" WHERE "scenes"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/scenes
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "scenes"[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+ScenesControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[35mScene Load (0.1ms)[0m  SELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ScenesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mScene Load (0.1ms)[0m  [1mSELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered scenes/_form.html.erb (5.0ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ScenesControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[35mScene Load (0.2ms)[0m  SELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ScenesController#index as HTML
+  [1m[36mScene Load (0.2ms)[0m  [1mSELECT "scenes".* FROM "scenes"[0m
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+ScenesControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[35mScene Load (0.2ms)[0m  SELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ScenesController#new as HTML
+  Rendered scenes/_form.html.erb (2.6ms)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+ScenesControllerTest: test_should_show_scene
+--------------------------------------------
+  [1m[36mScene Load (0.2ms)[0m  [1mSELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ScenesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mScene Load (0.1ms)[0m  SELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1  [["id", "980190962"]]
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+ScenesControllerTest: test_should_update_scene
+----------------------------------------------
+  [1m[36mScene Load (0.2ms)[0m  [1mSELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ScenesController#update as HTML
+  Parameters: {"scene"=>{"content"=>"MyText", "order"=>"1", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mScene Load (0.1ms)[0m  SELECT "scenes".* FROM "scenes" WHERE "scenes"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/scenes/980190962
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
