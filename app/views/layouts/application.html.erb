@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
+  <% if session[:user_id] %>
+  Hi! <%= current_user.name %> ,  <%= link_to "Sign Out", signout_path %>
+  <%end %>
 <body class='<%= controller.controller_name %>'>
-
+<% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
 <%= yield %>
 
 </body>

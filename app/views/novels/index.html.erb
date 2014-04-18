@@ -13,15 +13,15 @@
   </thead>
 
   <tbody>
-    <% @novels.each do |novel| %>
+    <% current_user.novels.each do |novel| %>
       <tr  class=" <% cycle('list_line_odd','list_line_eve') %>" >
         <td class="list_title"><%= novel.title %></td>
         <td><%= novel.genere %></td>
         <td class="list_description"><%= novel.description %></td>
         <td class="list_actions">
-          <%= link_to 'Show', novel %><BR>
-          <%= link_to 'Edit', edit_novel_path(novel) %><BR>
-          <%= link_to 'Destroy', novel, method: :delete, data: { confirm: 'Are you sure?' } %><BR>
+          <%= link_to 'Show', user_novel_path(:user_id => current_user, :id => novel.id) %><BR>
+          <%= link_to 'Edit', edit_user_novel_path(:user_id => current_user, :id => novel.id) %><BR>
+          <%= link_to 'Destroy', user_novel_path(:user_id => current_user, :id => novel.id), method: :delete, data: { confirm: 'Are you sure?' } %><BR>
         </tr>
       </tr>
     <% end %>
@@ -30,4 +30,5 @@
 
 <br>
 
-<%= link_to 'New Novel', new_novel_path %>
+<%= link_to 'New Novel', new_user_novel_path(:user_id => current_user.id) %>
+ 

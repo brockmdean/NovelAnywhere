@@ -34,5 +34,5 @@
 </ul>
 <BR>
 <%= link_to 'Create a New Scene', new_novel_scene_path(:novel_id=>@novel.id) %> |
-<%= link_to 'Edit This Novel', edit_novel_path %> |
-<%= link_to 'List All Novels', novels_path %>
+<%= link_to 'Edit This Novel', edit_user_novel_path(:user_id => current_user.id) %> |
+<%= link_to 'List All Novels', user_novels_path(:user_id => current_user.id) %>

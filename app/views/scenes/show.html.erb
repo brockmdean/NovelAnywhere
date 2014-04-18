@@ -21,4 +21,4 @@
 </p>
 
 <%= link_to 'Edit', edit_novel_scene_path(:id=> @scene , :novel_id=>@scene.novel_id) %> |
-<%= link_to 'Back', novel_path(:id=>@scene.novel_id) %>
+<%= link_to 'Back', user_novel_path(:user_id => current_user.id, :id=>@scene.novel_id) %>

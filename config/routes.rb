@@ -1,11 +1,15 @@
 Myapp::Application.routes.draw do
   resources :scenes
- 
-  
   resources :novels do
     resources :scenes
   end 
-
+  resources :users do
+    resources :novels
+  end
+      
+  #http://stackoverflow.com/questions/19722822/route-issue-in-rails-4-about-match-keyword-working-in-rails-3
+  get ':auth/google/callback' => 'sessions#create'
+  get ':/signout' =>'sessions#destroy' , :as =>:signout 
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
