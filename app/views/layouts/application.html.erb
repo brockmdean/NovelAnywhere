@@ -7,9 +7,24 @@
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
-  <% if session[:user_id] %>
-  Hi! <%= current_user.name %> ,  <%= link_to "Sign Out", signout_path %>
-  <%end %>
+  <div class="header">
+    <div class="navigation">
+      <% if session[:user_id] %>
+        <%= link_to 'novels', user_novels_path(current_user) %>
+        <% if @novel %>
+          <%= link_to 'scenes' , novel_scenes_path(@novel) %>
+          <%= link_to 'characters' , novel_characters_path(@novel) %>
+          <%= link_to 'locations'  , novel_locations_path(@novel) %>
+
+        <% end %>
+      <% end %>
+    </div>
+    <div class="user-control">
+      <% if session[:user_id] %>
+        Hi! <%= current_user.name %> ,  <%= link_to "Sign Out", signout_path %>
+      <%end %>
+    </div>
+  </div>
 <body class='<%= controller.controller_name %>'>
 <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>

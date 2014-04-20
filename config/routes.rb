@@ -1,4 +1,8 @@
 Myapp::Application.routes.draw do
+  resources :locations
+
+  resources :characters
+
   resources :scenes
   resources :novels do
     resources :scenes
@@ -7,6 +11,13 @@ Myapp::Application.routes.draw do
     resources :novels
   end
       
+  resources :novels do 
+    resources :locations
+  end
+  
+  resources :novels do
+    resources :characters
+  end
   #http://stackoverflow.com/questions/19722822/route-issue-in-rails-4-about-match-keyword-working-in-rails-3
   get ':auth/google/callback' => 'sessions#create'
   get ':/signout' =>'sessions#destroy' , :as =>:signout 

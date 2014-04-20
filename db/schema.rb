@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140418145921) do
+ActiveRecord::Schema.define(version: 20140419010720) do
+
+  create_table "characters", force: true do |t|
+    t.string   "name"
+    t.text     "alias"
+    t.text     "description"
+    t.integer  "novel_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.text     "name"
+    t.text     "description"
+    t.integer  "novel_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "novels", force: true do |t|
     t.string   "title"

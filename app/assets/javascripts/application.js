@@ -6,10 +6,14 @@
 //
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
-//
+//  if you add something that is not in the asset paths already, like a new gem, then you
+//will need to precompile assets to get that thing found by the app
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.purr
+//= require best_in_place
+//= require jquery.ui.all
 //= require_tree .

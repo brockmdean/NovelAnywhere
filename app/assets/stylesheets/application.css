@@ -11,3 +11,27 @@
  *= require_self
  *= require_tree .
  */
+html{
+  height: 100%;
+  background-color: #233;
+  background-image: -moz-linear-gradient(top,#233,#fff);
+  background-image: -webkit-gradient(linear,left top, left bottom, from(#233), to(#FFF));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Gradient (StartColorStr-#223333, EndColorStr=#FFFFFF)";
+  background-image: linear-gradient(top,#233,#fff);
+}
+body {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 29px;
+  border: 1px solid #233;
+  border-top: none;
+  background: #fff;
+  font: 82%/1.4 Verdana, Arial, Helvetica, sans-serif;
+}
+.header{
+  padding-bottom: 5px;
+  border-bottom: 5px solid #233; 
+}
+.navigation{
+ float: right; 
+}

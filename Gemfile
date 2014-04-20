@@ -20,6 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -29,9 +30,9 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'seed_dump'
 
-#gem 'omniauth-google'
-
 gem 'omniauth-google-oauth2'
+#http://stackoverflow.com/questions/11280601/ruby-on-rails-cant-find-file
+gem 'best_in_place' ,:git => 'https://github.com/aaronchi/best_in_place.git' 
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -1,0 +1,148 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+html{
+  height: 100%;
+  background-color: #233;
+  background-image: -moz-linear-gradient(top,#233,#fff);
+  background-image: -webkit-gradient(linear,left top, left bottom, from(#233), to(#FFF));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Gradient (StartColorStr-#223333, EndColorStr=#FFFFFF)";
+  background-image: linear-gradient(top,#233,#fff);
+}
+body {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 29px;
+  border: 1px solid #233;
+  border-top: none;
+  background: #fff;
+  font: 82%/1.4 Verdana, Arial, Helvetica, sans-serif;
+}
+.header{
+  padding-bottom: 5px;
+  border-bottom: 5px solid #233; 
+}
+.navigation{
+ float: right; 
+}
+/* line 5, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/novels.css.scss */
+.novels table {
+  border-collapse: collapse;
+}
+/* line 8, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/novels.css.scss */
+.novels table tr td {
+  padding: 5px;
+  vertical-align: top;
+}
+/* line 12, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/novels.css.scss */
+.novels .list_title {
+  width: 100px;
+}
+/* line 15, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/novels.css.scss */
+.novels .list_description {
+  width: 60%;
+}
+/* line 18, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/novels.css.scss */
+.novels .list_actions {
+  font-size: x-small;
+  text-align: right;
+  padding-left: lem;
+}
+/* line 23, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/novels.css.scss */
+.novels .list_line_even {
+  background: #e0f8f8;
+}
+/* line 26, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/novels.css.scss */
+.novels .list_line_odd {
+  background: #f8b0f8;
+}
+/* line 1, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+a {
+  color: #000;
+}
+/* line 23, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+a:visited {
+  color: #666;
+}
+/* line 26, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 33, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 38, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+#notice {
+  color: green;
+}
+
+/* line 42, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 48, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 55, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 65, /home/action/workspace/NovelAnywhere/app/assets/stylesheets/scaffolds.css.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
