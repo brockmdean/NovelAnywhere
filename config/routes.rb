@@ -3,7 +3,12 @@ Myapp::Application.routes.draw do
 
   resources :characters
 
-  resources :scenes
+  resources :scenes do
+    collection do 
+      post 'sort'
+    end 
+  end
+  
   resources :novels do
     resources :scenes
   end 

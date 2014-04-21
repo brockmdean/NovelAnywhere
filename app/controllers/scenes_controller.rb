@@ -62,6 +62,16 @@ class ScenesController < ApplicationController
     end
   end
 
+  def sort
+    params[:scene].each_with_index do |id, index|
+      logger.debug "id is {id}"
+      scene=Scene.find_by_id ( id)
+      scene.order=index+1
+      scene.save
+       #Scene.update_all(['order=?', index+1], ['id=?', id])
+  end
+    render :nothing => true
+  end  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_scene
