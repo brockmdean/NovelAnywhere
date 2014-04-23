@@ -32,6 +32,9 @@ body {
   padding-bottom: 5px;
   border-bottom: 5px solid #233; 
 }
+.footer {
+  clear: right;
+}
 .navigation{
  float: right; 
 }

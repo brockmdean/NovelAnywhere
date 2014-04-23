@@ -28,7 +28,7 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       if @character.save
-        format.html { redirect_to @character, notice: 'Character was successfully created.' }
+        format.html { redirect_to novel_character_path(:novel_id =>@character.novel_id,:id => @character), notice: 'Character was successfully created.' }
         format.json { render action: 'show', status: :created, location: @character }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class CharactersController < ApplicationController
   def update
     respond_to do |format|
       if @character.update(character_params)
-        format.html { redirect_to @character, notice: 'Character was successfully updated.' }
+        format.html { redirect_to novel_character_path(:novel_id =>@character.novel_id,:id => @character), notice: 'Character was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

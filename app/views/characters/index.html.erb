@@ -18,9 +18,9 @@
         <td><%= character.name %></td>
         <td><%= character.alias %></td>
         <td><%= character.description %></td>
-        <td><%= link_to 'Show', character %></td>
-        <td><%= link_to 'Edit', edit_character_path(character) %></td>
-        <td><%= link_to 'Destroy', character ,method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', novel_character_path(:id => character, :novel_id => session[:current_novel]) %></td>
+        <td><%= link_to 'Edit', edit_novel_character_path(:id => character, :novel_id => session[:current_novel]) %></td>
+        
       </tr>
     <% end %>
   </tbody>

@@ -8,8 +8,6 @@ legeal
   terms of use
   copyright
 layout
-  edit in place names
-  reorder scenes
   display summaries of scenes
   IDE look.
 search 
@@ -21,9 +19,15 @@ help and suggestions
 forums?
 classes? modeled on sandersons college course?
 blog
-routes characters, scenes, novels, locations need to work for only this users stuff
 common navigation back to novel page. 
 photos for characters and locations and other inspiratioin
 research notes.
 html purifier
 character questionare brainstorming sheet.
+Import existing work
+chapters and parts
+what about AWS s3 storage for scenes?
+replace integers as primary keys?
+none of the edit links from the scenes, locations, characters index actions work, submit does not have the novel_id.
+form validation 
+testing

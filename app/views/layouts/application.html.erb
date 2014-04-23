@@ -10,11 +10,16 @@
   <div class="header">
     <div class="navigation">
       <% if session[:user_id] %>
-        <%= link_to 'novels', user_novels_path(current_user) %>
-        <% if @novel %>
-          <%= link_to 'scenes' , novel_scenes_path(@novel) %>
-          <%= link_to 'characters' , novel_characters_path(@novel) %>
-          <%= link_to 'locations'  , novel_locations_path(@novel) %>
+      <%= yield :novelNav %>
+        <% if session[:current_novel] %>
+          <%= link_to 'novel', user_novel_path(:user_id=> session[:user_id] , :id => session[:current_novel]) %>
+        <% else %>
+          <%= link_to 'novels', user_novels_path(current_user) %>
+        <% end %>
+      <% if session[:current_novel] %>
+      <%= link_to 'scenes' , novel_scenes_path(:novel_id =>session[:current_novel]) %>
+          <%= link_to 'characters' , novel_characters_path(:novel_id =>session[:current_novel]) %>
+          <%= link_to 'locations'  , novel_locations_path(:novel_id =>session[:current_novel]) %>
 
         <% end %>
       <% end %>
@@ -30,6 +35,8 @@
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 <%= yield %>
-
+<div class="footer" >
+  This is a footer
+  </div>
 </body>
 </html>

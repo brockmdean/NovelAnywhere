@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419010720) do
+ActiveRecord::Schema.define(version: 20140423173527) do
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20140419010720) do
     t.integer  "novel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "join_scene_characters", force: true do |t|
+    t.integer "scene_id"
+    t.integer "character_id"
+  end
+
+  create_table "join_scene_locations", force: true do |t|
+    t.integer "scene_id"
+    t.integer "location_id"
   end
 
   create_table "locations", force: true do |t|

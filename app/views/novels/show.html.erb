@@ -1,5 +1,6 @@
+<div class="mainbody">
+<% logger.debug "#{action_name}  #{params}" %>
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= best_in_place @novel ,:title %>
@@ -14,18 +15,26 @@
   <strong>Description:</strong>
   <%= best_in_place @novel, :description %>
 </p>
+<div class="scenesList">
 <ul id="scenes">
 <%# fetch the scenes ordered by the order field %>
 <% @novel.scenes.order(:order).each do |scene| %>
+  <% logger.debug "first scene #{scene}" %>
  <%#  #http://stackoverflow.com/questions/8531306/how-to-use-rails-named-route-helpers-with-parameters %> 
   <%= content_tag_for( :li , scene ) do %>
     <%=  scene.title %> <%= link_to 'Edit Scene' , edit_novel_scene_path(:novel_id=> @novel , :id =>scene) %> 
   <% end %>
 <% end %>
 </ul>
+</div>
+
 <BR>
-<%= link_to 'Create a New Scene', new_novel_scene_path(:novel_id=>@novel.id) %> 
-<%= link_to 'Create a New Character', new_novel_character_path(:novel_id=>@novel.id) %> 
-<%= link_to 'Create a New Location', new_novel_location_path(:novel_id=>@novel.id) %> 
+<%= link_to 'Create a New Scene', new_novel_scene_path(:novel_id=>@novel.id) %> <BR>
+<%= link_to 'Create a New Character', new_novel_character_path(:novel_id=>@novel.id) %><BR> 
+<%= link_to 'Create a New Location', new_novel_location_path(:novel_id=>@novel.id) %> <BR>
 
 
+<% content_for(:novelNav) do %>
+ <%= link_to 'novels', user_novels_path(current_user) %>
+<% end %>
+</div>

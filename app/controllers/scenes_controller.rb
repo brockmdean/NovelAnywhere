@@ -1,6 +1,6 @@
 class ScenesController < ApplicationController
   before_action :set_scene, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_novel , only: [:index] 
   # GET /scenes
   # GET /scenes.json
   def index
@@ -10,6 +10,8 @@ class ScenesController < ApplicationController
   # GET /scenes/1
   # GET /scenes/1.json
   def show
+    @characters = @scene.characters;
+    @location = @scene.location;
   end
 
   # GET /scenes/new
@@ -24,9 +26,15 @@ class ScenesController < ApplicationController
   # POST /scenes
   # POST /scenes.json
   def create
-    puts "the scene paramaters " , scene_params;
     @scene = Scene.new(scene_params)
-
+    if params[:characters] 
+      params[:characters].each do  |c|  
+        jsc = JoinSceneCharacter.new
+        jsc.character_id=c
+        jsc.scene_id=params[:id];
+        jsc.save;
+      end 
+    end 
     respond_to do |format|
       if @scene.save
         format.html { redirect_to @scene, notice: 'Scene was successfully created.' }
@@ -41,6 +49,24 @@ class ScenesController < ApplicationController
   # PATCH/PUT /scenes/1
   # PATCH/PUT /scenes/1.json
   def update
+    # will have to think carefully about how to update characters and locations
+    #this code always adds to the collection which is not correct. 
+    #maybe i should delete from the join* table first then re-add.
+    if params[:characters] 
+      params[:characters].each do  |c|  
+        jsc = JoinSceneCharacter.new
+        jsc.character_id=c
+        jsc.scene_id=params[:id];
+        jsc.save;
+      end 
+    end 
+    if params[:locations] 
+      l=params[:locations]
+      jsl = JoinSceneLocation.new
+      jsl.location_id=l
+      jsl.scene_id=params[:id];
+      jsl.save;
+    end 
     respond_to do |format|
       if @scene.update(scene_params)
         format.html { redirect_to @scene, notice: 'Scene was successfully updated.' }
@@ -77,11 +103,14 @@ class ScenesController < ApplicationController
     def set_scene
       @scene = Scene.find(params[:id])
     end
-
+ def set_novel 
+    @novel= Novel.find(params[:novel_id])
+  end
     # Never trust parameters from the scary internet, only allow the white list through.
   # when i added teh novel_id to the table I was getting unpermitted parameters: novel_id.
   #I had to add that parameter here manually. 
     def scene_params
-      params.require(:scene).permit(:title, :content, :order, :novel_id, :summary)
+      p=params.require(:scene).permit(:title, :content, :order, :novel_id, :summary)
+      
     end
 end

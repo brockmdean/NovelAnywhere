@@ -24,14 +24,16 @@
     <%= f.text_area( :content, class: "mcecontent")%>
   </div>
   <div class="field">
-    <%= f.label :order %><br>
-    <%= f.number_field :order %>
-  </div>
-  <div class="filed">
-  
     <%= f.hidden_field  :novel_id , value: params[:novel_id] %> <BR>
     </div>
-  <div class="actions">
+  <%= label_tag "characters", "Characters" %><BR>
+  <% @allCharacters=Character.all %>
+<%= select_tag("characters", options_from_collection_for_select(@allCharacters, "id" ,"name"), multiple: true)      %><BR>
+<%= label_tag "locations", "Location" %><BR>
+  <% @allLocations=Location.all %>
+<%= select_tag("locations", options_from_collection_for_select(@allLocations, "id" ,"name"))      %>
+
+    <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

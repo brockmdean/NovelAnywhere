@@ -17,7 +17,7 @@
         <td><%= location.name %></td>
         <td><%= location.description %></td>
         <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
+        <td><%= link_to 'Edit', edit_novel_location_path(:id => location, :novel_id => session[:current_novel]) %></td>
         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

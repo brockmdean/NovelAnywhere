@@ -16,9 +16,13 @@
 </p>
 
 <p>
-  <strong>Order:</strong>
-  <%= @scene.order %>
+  <strong>Characters:</strong><BR>
+  <% @characters.each do |c| %>
+    <%= c.name %><BR>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_novel_scene_path(:id=> @scene , :novel_id=>@scene.novel_id) %> |
-<%= link_to 'Back', user_novel_path(:user_id => current_user.id, :id=>@scene.novel_id) %>
+<p>
+  <strong> Location:</strong>
+  <%= @location.name %>
+</p>

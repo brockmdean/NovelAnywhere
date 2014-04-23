@@ -10,6 +10,7 @@ class NovelsController < ApplicationController
   # GET /novels/1
   # GET /novels/1.json
   def show
+    session[:current_novel]=@novel.id
   end
 
   # GET /novels/new
