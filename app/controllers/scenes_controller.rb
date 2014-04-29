@@ -1,10 +1,10 @@
 class ScenesController < ApplicationController
   before_action :set_scene, only: [:show, :edit, :update, :destroy]
-  before_action :set_novel , only: [:index] 
+  before_action :set_novel 
   # GET /scenes
   # GET /scenes.json
   def index
-    @scenes = Scene.all
+    @scenes = @novel.scenes
   end
 
   # GET /scenes/1

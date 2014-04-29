@@ -28,6 +28,12 @@ Import existing work
 chapters and parts
 what about AWS s3 storage for scenes?
 replace integers as primary keys?
-none of the edit links from the scenes, locations, characters index actions work, submit does not have the novel_id.
 form validation 
 testing
+handle multiple authintication sources for 1 user. need need a new table authorizations, and change users.
+online presence
+  FB page
+  Twiter presence
+  Blog
+  ads in writing related formums, etc ....
+  outlining mode see workflowy for inspiration

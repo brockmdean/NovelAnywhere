@@ -1,0 +1,11 @@
+development:
+  app_id: '497531740875-8opilp2vfl7gmg44e25dgt6muhgf9d4m.apps.googleusercontent.com'
+  secret: 'S1JYZPQCNlLEr-AmEN93xvkJ'
+  
+production:
+   app_id: '497531740875-1rkbrf6r8vuunjaho8r8553dkuf9lr77.apps.googleusercontent.com'
+   secret: 'wgaxnv39t4TrdqztrMXmjGxV'
+   
+test:
+  app_id: '497531740875-8opilp2vfl7gmg44e25dgt6muhgf9d4m.apps.googleusercontent.com'
+  secret: 'S1JYZPQCNlLEr-AmEN93xvkJ'

@@ -16,21 +16,18 @@
       }
 
 </style>
-<h1 align="center">DigitalOcean Rails Application</h1>
-<img src="assets/rails.png" align="center"><br/>
-<p>This file is located in /home/rails/app/views/home/index.html.erb</p>
-
-Perhaps I cand develop here !!
-Your application root is located in: <%= Rails.root.to_s %><br>
-
-Ruby version: <%= RUBY_VERSION %><br>
-
-Rails version: <%= Rails.version %><br>
+<h1 align="center">Write Your Novel Anywhere</h1>
+<img src="assets/manuscript.jpg" align="center"><br/>
 <div id="user_nav">
   <% if current_user %>
     Welcome, <%= current_user.name %>!
   <%= link_to "Sign Out", signout_path %>
   <% else %>
-    <%= link_to "Sign in with Goggle", "/auth/google" %>
+    <%= link_to "Sign in with Goggle", "/auth/google_oauth2" %>
   <% end %>
+  <p>
+  <strong>Don&rsquo;t use these services?</strong>
+  <%= link_to "Create an account", "/auth/identity/register" %> or
+  <%= link_to "login", "/auth/identity" %> with a password.
+</p>
 </div>

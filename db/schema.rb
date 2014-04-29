@@ -11,13 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423173527) do
+ActiveRecord::Schema.define(version: 20140428215318) do
+
+  create_table "authorizations", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "characters", force: true do |t|
     t.string   "name"
     t.text     "alias"
     t.text     "description"
     t.integer  "novel_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "friendships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "identities", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,6 +74,20 @@ ActiveRecord::Schema.define(version: 20140423173527) do
     t.integer  "user_id"
   end
 
+  create_table "pending_invites", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "user2_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", force: true do |t|
+    t.integer  "user_id"
+    t.text     "bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "scenes", force: true do |t|
     t.string   "title"
     t.text     "content"
@@ -60,8 +99,6 @@ ActiveRecord::Schema.define(version: 20140423173527) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"

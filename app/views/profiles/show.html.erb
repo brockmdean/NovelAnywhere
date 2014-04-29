@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Bio:</strong>
+  <%= best_in_place @profile , :bio %>
+</p>
+
+<p>
+  Invite a friend :
+</p>
+<%= form_tag(pending_invites_new_path, method:"get") do %>
+<%= label_tag(:email , "Friends Email address:") %>
+<%= text_field_tag(:email) %>
+<%= submit_tag("Submit") %>
+<% end %>
+<p> 
+  Pending Invites 
+</p>
+<% PendingInvites.where("user2_id = ?" , current_user.id ).each  do |p|%>
+ <%= p.user.name %> <BR>
+<% end %>
+<p>
+  Invitations
+</P>
+<% PendingInvites.where("user_id = ?" , current_user.id ).each  do |p|%>
+ <%= p.user2.name %>   <%= link_to 'Accept', pending_invite_accept_path(p) %><BR>
+<% end %>
+<p>
+  Friends
+</p>
+<% current_user.friends.each do |f| %>
+  <%= f.name %> <BR>
+  <% end %>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

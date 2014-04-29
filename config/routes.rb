@@ -1,4 +1,9 @@
 Myapp::Application.routes.draw do
+  get "pending_invites/new"
+  get "pending_invites/show"
+  get "pending_invites/:id/accept" => 'pending_invites#accept' , :as => :pending_invite_accept 
+  resources :profiles , only: [ :show , :edit , :new , :create , :update , :destroy ] 
+
   resources :locations
 
   resources :characters
@@ -24,7 +29,8 @@ Myapp::Application.routes.draw do
     resources :characters
   end
   #http://stackoverflow.com/questions/19722822/route-issue-in-rails-4-about-match-keyword-working-in-rails-3
-  get ':auth/google/callback' => 'sessions#create'
+  get ':auth/:provider/callback' => 'sessions#create'
+  post ':auth/:provider/callback' => 'sessions#create'
   get ':/signout' =>'sessions#destroy' , :as =>:signout 
   get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.

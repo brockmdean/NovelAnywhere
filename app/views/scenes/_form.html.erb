@@ -27,10 +27,10 @@
     <%= f.hidden_field  :novel_id , value: params[:novel_id] %> <BR>
     </div>
   <%= label_tag "characters", "Characters" %><BR>
-  <% @allCharacters=Character.all %>
+  <% @allCharacters=@novel.characters %>
 <%= select_tag("characters", options_from_collection_for_select(@allCharacters, "id" ,"name"), multiple: true)      %><BR>
 <%= label_tag "locations", "Location" %><BR>
-  <% @allLocations=Location.all %>
+  <% @allLocations=@novel.locations.all %>
 <%= select_tag("locations", options_from_collection_for_select(@allLocations, "id" ,"name"))      %>
 
     <div class="actions">
