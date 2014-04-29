@@ -36,7 +36,8 @@ gem 'omniauth-identity'
 
 #http://stackoverflow.com/questions/11280601/ruby-on-rails-cant-find-file
 #gem 'best_in_place' ,:git => 'https://github.com/aaronchi/best_in_place.git' 
-gem 'best_in_place'  
+#gem 'best_in_place'   , '~> 2.1.0'
+gem "best_in_place", github: 'bernat/best_in_place', branch: "rails-4"
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
