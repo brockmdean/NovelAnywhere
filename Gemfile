@@ -35,8 +35,9 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-identity'
 
 #http://stackoverflow.com/questions/11280601/ruby-on-rails-cant-find-file
-#gem 'best_in_place' ,:git => 'https://github.com/aaronchi/best_in_place.git' 
+gem 'best_in_place' ,:git => 'https://github.com/aaronchi/best_in_place.git' 
 
+gem 'ember-rails'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

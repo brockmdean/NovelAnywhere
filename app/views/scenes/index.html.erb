@@ -19,8 +19,8 @@
         <% #http://stackoverflow.com/questions/3932267/dont-escape-html-in-ruby-on-rails %>
         <td><%= scene.content.html_safe %></td>
         <td><%= scene.order %></td>
-  <td><%= link_to 'Show', novel_scene_path(:id => scene, :novel_id => session[:current_novel]) %></td>
-  <td><%= link_to 'Edit', edit_novel_scene_path(:id => scene, :novel_id => session[:current_novel]) %></td>
+  <td><%= link_to 'Show', scene_path( scene) %></td>
+  <td><%= link_to 'Edit', edit_scene_path(scene) %></td>
         <td><%= link_to 'Destroy', scene, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

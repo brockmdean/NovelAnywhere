@@ -19,9 +19,9 @@
         <td><%= novel.genere %></td>
         <td class="list_description"><%= novel.description %></td>
         <td class="list_actions">
-          <%= link_to 'Show', user_novel_path(:user_id => current_user, :id => novel.id) %><BR>
-          <%= link_to 'Edit', edit_user_novel_path(:user_id => current_user, :id => novel.id) %><BR>
-          <%= link_to 'Destroy', user_novel_path(:user_id => current_user, :id => novel.id), method: :delete, data: { confirm: 'Are you sure?' } %><BR>
+          <%= link_to 'Show', novel_path(:id => novel.id) %><BR>
+          <%= link_to 'Edit', edit_novel_path(:id => novel.id) %><BR>
+          <%= link_to 'Destroy', novel_path(:id => novel.id), method: :delete, data: { confirm: 'Are you sure?' } %><BR>
         </tr>
       </tr>
     <% end %>
@@ -30,5 +30,5 @@
 
 <br>
 
-<%= link_to 'New Novel', new_user_novel_path(:user_id => current_user.id) %>
+<%= link_to 'New Novel', new_novel_path %>
  

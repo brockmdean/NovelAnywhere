@@ -18,8 +18,8 @@
         <td><%= character.name %></td>
         <td><%= character.alias %></td>
         <td><%= character.description %></td>
-        <td><%= link_to 'Show', novel_character_path(:id => character, :novel_id => session[:current_novel]) %></td>
-        <td><%= link_to 'Edit', edit_novel_character_path(:id => character, :novel_id => session[:current_novel]) %></td>
+        <td><%= link_to 'Show', character_path(:id => character) %></td>
+        <td><%= link_to 'Edit', edit_character_path(:id => character) %></td>
         
       </tr>
     <% end %>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Character', new_novel_character_path(:novel_id => @novel) %>
+<%= link_to 'New Character', new_character_path %>

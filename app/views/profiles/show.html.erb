@@ -3,7 +3,8 @@
 
 <p>
   <strong>Bio:</strong>
-  <%=  @profile.bio %>
+  <%# @profile.bio %>
+<%= best_in_place @profile, :bio %>
 </p>
 
 <p>
@@ -17,22 +18,48 @@
 <p> 
   Pending Invites 
 </p>
+<table id = 'ToInvites' >
+  <tr>
+    <th>Name </th>
+    <th>date</th>
+  </tr>
 <% PendingInvites.where("user2_id = ?" , current_user.id ).each  do |p|%>
- <%= p.user.name %> <BR>
+  <tr>
+    <td> <%= p.user.name %> </td> <td> <%= p.created_at %> </td>
+  </tr>
 <% end %>
+</table>
+<div id ="div1">
 <p>
-  Invitations
+  Invitations from Others
 </P>
+<table id = 'FromInvites' >
+  <tr>
+    <th>Name </th>
+    <th>Accept</th>
+  </tr>
 <% PendingInvites.where("user_id = ?" , current_user.id ).each  do |p|%>
- <%= p.user2.name %>   <%= link_to 'Accept', pending_invite_accept_path(p) %><BR>
+  <tr>
+    <td><%= p.user2.name %> </td> <td> <%= link_to 'Accept', pending_invite_accept_path(p) %></td>
+  </tr>
 <% end %>
+</table>
+</div>
 <p>
   Friends
 </p>
+<table id = "friends" >
+  <tr>
+    <th> Name </th>
+    <th> Manage </th>
+  </tr>
 <% current_user.friends.each do |f| %>
-  <%= f.name %> <BR>
+  <tr>
+    <td> <%= f.name %> </td>
+    <td> remove </td>
+  </tr>
   <% end %>
-
+</table>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>

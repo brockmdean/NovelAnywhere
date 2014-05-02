@@ -11,7 +11,7 @@ class ScenesController < ApplicationController
   # GET /scenes/1.json
   def show
     @characters = @scene.characters;
-    @location = @scene.location;
+    @location   = @scene.location;
   end
 
   # GET /scenes/new
@@ -35,6 +35,9 @@ class ScenesController < ApplicationController
         jsc.save;
       end 
     end 
+    unless @scene.novel_id
+      @scene.novel_id=session[:current_novel]
+    end
     respond_to do |format|
       if @scene.save
         format.html { redirect_to @scene, notice: 'Scene was successfully created.' }
@@ -104,7 +107,11 @@ class ScenesController < ApplicationController
       @scene = Scene.find(params[:id])
     end
  def set_novel 
+   if params[:novel_id]
     @novel= Novel.find(params[:novel_id])
+   elsif session[:current_novel]
+     @novel = Novel.find(session[:current_novel])
+   end
   end
     # Never trust parameters from the scary internet, only allow the white list through.
   # when i added teh novel_id to the table I was getting unpermitted parameters: novel_id.

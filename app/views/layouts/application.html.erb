@@ -13,14 +13,15 @@
       <%= link_to 'profile', profile_path(current_user.profile) %>
       <%= yield :novelNav %>
         <% if session[:current_novel] %>
-          <%= link_to 'novel', user_novel_path(:user_id=> session[:user_id] , :id => session[:current_novel]) %>
+          <%# link_to 'novel', user_novel_path(:user_id=> session[:user_id] , :id => session[:current_novel]) %>
+          <%= link_to 'novel', novel_path(:id => session[:current_novel]) %>
         <% else %>
-          <%= link_to 'novels', user_novels_path(current_user) %>
+          <%= link_to 'novels',novels_path %>
         <% end %>
       <% if session[:current_novel] %>
-      <%= link_to 'scenes' , novel_scenes_path(:novel_id =>session[:current_novel]) %>
-          <%= link_to 'characters' , novel_characters_path(:novel_id =>session[:current_novel]) %>
-          <%= link_to 'locations'  , novel_locations_path(:novel_id =>session[:current_novel]) %>
+      <%= link_to 'scenes' , scenes_path %>
+          <%= link_to 'characters' , characters_path %>
+          <%= link_to 'locations'  , locations_path %>
 
         <% end %>
       <% end %>

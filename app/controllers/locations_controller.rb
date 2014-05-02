@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :set_novel, only: [:index] 
+  before_action :set_novel
   # GET /locations
   # GET /locations.json
   def index
@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     @location = Location.new(location_params)
-
+    @location.novel_id = @novel.id
     respond_to do |format|
       if @location.save
         format.html { redirect_to @location, notice: 'Location was successfully created.' }
@@ -67,7 +67,7 @@ class LocationsController < ApplicationController
       @location = Location.find(params[:id])
     end
     def set_novel 
-      @novel= Novel.find(params[:novel_id])
+      @novel= Novel.find(session[:current_novel])
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
