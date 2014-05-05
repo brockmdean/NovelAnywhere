@@ -30,7 +30,12 @@
 </ul>
 </div>
 
-<BR>
+This novel is shared with :<BR>
+<% @sharedwith = Sharednovel.where(novel_id:  session[:current_novel]) %>
+<%  @sharedwith.each do |f| %>
+<%= User.find_by(id: f.user_id).name %> <BR>
+<% end %>
+<%= link_to 'Share this Novel', new_sharednovel_path %><BR>
 <%= link_to 'Create a New Scene', new_scene_path%> <BR>
 <%= link_to 'Create a New Character', new_character_path %><BR> 
 <%= link_to 'Create a New Location', new_location_path %> <BR>

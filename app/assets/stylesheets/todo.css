@@ -1,8 +1,8 @@
-html,
+/*html,
 body {
 	margin: 0;
 	padding: 0;
-}
+}*/
 
 button {
 	margin: 0;
@@ -20,6 +20,7 @@ button {
 	appearance: none;
 }
 
+/*
 body {
 	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
@@ -32,7 +33,7 @@ body {
 	-o-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
-
+*/
 #todoapp {
 	background: #fff;
 	background: rgba(255, 255, 255, 0.9);

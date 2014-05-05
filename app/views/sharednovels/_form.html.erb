@@ -1,0 +1,9 @@
+<%= form_tag("/sharednovels", method: "post") do %>
+
+  <% @allFriends = current_user.friends; %>
+  <%= label_tag("friends", "Friends") %><BR>
+  <%= select_tag("friends" , options_from_collection_for_select(@allFriends, "id" ,"name"), multiple: true)   %><BR>
+<%= check_box_tag(:write , "true") %>
+<%= label_tag("write","Grant these friends edit permision") %> <BR>
+  <%= submit_tag("Share") %>
+<% end %>

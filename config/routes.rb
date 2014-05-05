@@ -1,8 +1,8 @@
 Myapp::Application.routes.draw do
+  resources :sharednovels
   get "pending_invites/new"
   get "pending_invites/show"
   get "pending_invites/:id/accept" => 'pending_invites#accept' , :as => :pending_invite_accept 
-  
   get "todo" => 'todo#show'
   resources :profiles , only: [ :show , :edit , :new , :create , :update , :destroy ] 
 

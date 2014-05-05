@@ -32,3 +32,31 @@
 
 <%= link_to 'New Novel', new_novel_path %>
  
+<h1> Novels shared with me</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genere</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_user.sharednovels.each do |novelrecord| %>
+       <% logger.info novelrecord.to_yaml %>
+       <% @novel = Novel.find_by(id: novelrecord.novel_id) %>
+       
+        <td class="list_title"><%= @novel.title %></td>
+        <td><%= @novel.genere %></td>
+        <td class="list_description"><%= @novel.description %></td>
+        <td class="list_actions">
+          <%= link_to 'Show', novel_path(:id => @novel.id) %><BR>
+        </tr>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

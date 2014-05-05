@@ -1,0 +1,2 @@
+module SharednovelHelper
+end

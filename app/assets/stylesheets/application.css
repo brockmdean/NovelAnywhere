@@ -20,6 +20,7 @@ html{
   background-image: linear-gradient(top,#233,#fff);
 }
 body {
+  width: auto;
   margin: 0 50px;
   padding: 29px;
   border: 1px solid #233;

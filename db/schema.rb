@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428215318) do
+ActiveRecord::Schema.define(version: 20140503122425) do
 
   create_table "authorizations", force: true do |t|
     t.string   "provider"
@@ -96,6 +96,15 @@ ActiveRecord::Schema.define(version: 20140428215318) do
     t.datetime "updated_at"
     t.integer  "novel_id"
     t.text     "summary"
+  end
+
+  create_table "sharednovels", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "novel_id"
+    t.integer  "owner_id"
+    t.boolean  "write"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

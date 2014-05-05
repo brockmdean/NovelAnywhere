@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   has_many :novels
+  has_many :owners , class_name: "Sharednovel" , foreign_key: "owner_id"
+  has_many :sharednovels
   has_many :authorizations
-  has_one :profile
+  has_one  :profile
   has_many :pendingInvites
   has_many :friendships
   has_many :friends, :through => :friendships
